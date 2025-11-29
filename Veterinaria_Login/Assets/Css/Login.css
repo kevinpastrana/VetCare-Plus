@@ -1,0 +1,398 @@
+/**
+ * LOGIN.CSS - Estilos para la página de login
+ * Sistema de Gestión Veterinaria VetCare Plus
+ */
+
+/* ============================================
+   VARIABLES CSS
+   ============================================ */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --accent-color: #60a5fa;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --background: #f3f4f6;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   RESET Y BASE
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+.login-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1000px;
+    width: 100%;
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   SECCIÓN BRANDING (IZQUIERDA)
+   ============================================ */
+.brand-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decoraciones de fondo */
+.brand-section::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+}
+
+.brand-section::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    bottom: -50px;
+    right: -50px;
+}
+
+.brand-logo {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px); 
+    }
+    50% { 
+        transform: translateY(-20px); 
+    }
+}
+
+.brand-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.brand-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    z-index: 1;
+}
+
+.brand-features {
+    margin-top: 40px;
+    text-align: left;
+    z-index: 1;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.feature-item i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* ============================================
+   SECCIÓN FORMULARIO (DERECHA)
+   ============================================ */
+.form-section {
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-header {
+    margin-bottom: 40px;
+}
+
+.form-header h2 {
+    color: var(--text-dark);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.form-header p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   FORMULARIO Y CAMPOS
+   ============================================ */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 15px 14px 45px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-control.error {
+    border-color: var(--error-color);
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* ============================================
+   OPCIONES Y BOTONES
+   ============================================ */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.remember-me input {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: var(--secondary-color);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.btn-login:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ============================================
+   ALERTAS
+   ============================================ */
+.alert {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.alert.show {
+    display: block;
+}
+
+.alert-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border-left: 4px solid var(--error-color);
+}
+
+.alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border-left: 4px solid var(--success-color);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .login-container {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+    }
+
+    .brand-section {
+        padding: 40px 30px;
+    }
+
+    .brand-title {
+        font-size: 2rem;
+    }
+
+    .brand-features {
+        display: none;
+    }
+
+    .form-section {
+        padding: 40px 30px;
+    }
+
+    .form-header h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .brand-section {
+        padding: 30px 20px;
+    }
+
+    .brand-logo {
+        font-size: 60px;
+    }
+
+    .brand-title {
+        font-size: 1.6rem;
+    }
+
+    .form-section {
+        padding: 30px 20px;
+    }
+}
+
+/* ============================================
+   CREDENCIALES DEMO
+   ============================================ */
+.demo-credentials {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f0f9ff;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #0369a1;
+}
+
+.demo-credentials code {
+    background: #dbeafe;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
